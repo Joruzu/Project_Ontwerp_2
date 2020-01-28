@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Super Mario</string>
+    <string name="welcome">Welcome to the mobile app</string>
+    <string name="name">Name: </string>
+    <string name="email">Email: </string>
+    <string name="street">Street: </string>
+    <string name="place">Place: </string>
+    <string name="phone">Phone: </string>
+    <string name="button">Save entry to database</string>
+    <string name="groetLoc">/home/dinesh/AndroidStudioProjects/SuperMario/app/src/main/java/com/example/supermario/tables/</string>
+
+    <string name="button1">hallo</string>
+    <string name="button2">goedemorgen</string>
+    <string name="button3">Goedenavond</string>
+    <string name="button4">Hoe gaat het?</string>
+
+    <string name="txtview">this is a saple textview</string>
+    <string name="btn">Button ex</string>
+</resources>
