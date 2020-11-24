@@ -9,32 +9,47 @@
     android:background="@drawable/borderbottom"
     android:id="@+id/recViewParent">
 
-    <TextView
-        android:id="@+id/txtSarnami"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sarnami"
-        android:textColor="@color/textColor"
-        android:textSize="18sp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recTxtViewParent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0">
 
-    <TextView
-        android:id="@+id/txtNederlands"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nederlands"
-        android:textColor="@color/textColor"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSarnami" />
+        <TextView
+            android:id="@+id/txtSarnami"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sarnami"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtNederlands"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nederlands"
+            android:textColor="@color/textColor"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSarnami" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:src="@drawable/ic_play_sound"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_play_sound"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

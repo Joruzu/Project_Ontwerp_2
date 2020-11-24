@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
-    <color name="textColor">#000000</color>
-    <color name="midGrey">#676767</color>
-    <color name="backgroundWhite">#ffffff</color>
-    <color name="backgroundLight">#eeeeee</color>
+    <color name="textColor">#121212</color>
+    <color name="midGrey">#A7A7A7</color>
+    <color name="backgroundHighContrast">#ffffff</color>
+    <color name="backgroundMediumContrast">#efefff</color>
     <color name="highlightColor">#0ACCB9</color>
 </resources>
