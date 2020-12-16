@@ -2,14 +2,17 @@ package com.example.sarnamibasic;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.NavUtils;
 
 public class PreferencesActivity extends AppCompatActivity {
     private SeekBar seekBar;
@@ -24,6 +27,10 @@ public class PreferencesActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Instellingen");
+
+
 
         sharedPreferences = getSharedPreferences("userPreferences", MODE_PRIVATE);
         userEdit = sharedPreferences.edit();
@@ -66,6 +73,17 @@ public class PreferencesActivity extends AppCompatActivity {
                 userEdit.putInt("textSize", valueSb).commit();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
 

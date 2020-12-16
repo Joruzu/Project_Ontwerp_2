@@ -1,8 +1,11 @@
 package com.example.sarnamibasic;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -11,8 +14,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,21 +25,25 @@ import java.util.Collections;
 public class QuizActivity extends AppCompatActivity {
     ArrayList<Translation> transList;
     private boolean answered;
-    private int index, questionTotal, totalCorrect;
-    private String question, ansOption1, randOption2, randOption3;
+    private int index, questionTotal, totalCorrect, ansOptionId;
+    private String question, ansOption1, randOption2, randOption3, tableInfo;
     private ArrayList<String> answers;
     private ArrayList<RadioButton> radioButtons = new ArrayList<>();
     private RadioGroup rbGroup;
     private Button nextQuestion;
     private TextView txtQuestion, txtCountQuestion, txtCountCorrect;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent prevIntent = getIntent();
         String tableInfo = prevIntent.getStringExtra("tableInfo");
         String quizName = prevIntent.getStringExtra("quizName");
+        setTableInfo(tableInfo);
         getSupportActionBar().setTitle(quizName + " Quiz");
 
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
@@ -64,7 +73,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!answered) {
                     if(radioButtons.get(0).isChecked()||radioButtons.get(1).isChecked()||radioButtons.get(2).isChecked()) {
-                        checkAnswer(ansOption1);
+                        checkAnswer(ansOption1, ansOptionId);
                         nextQuestion.setText("Volgende");
                     }
                     else {
@@ -91,12 +100,13 @@ public class QuizActivity extends AppCompatActivity {
             question = transList.get(index).getNed();
             txtQuestion.setText(question);
             ansOption1 = transList.get(index).getSar();
-            if (index < questionTotal / 2) {
-                randOption2 = transList.get(index + 1).getSar();
-                randOption3 = transList.get(index + 2).getSar();
+            ansOptionId = transList.get(index).getId();
+            if (index < questionTotal - 5) {
+                randOption2 = transList.get(index + 2).getSar();
+                randOption3 = transList.get(index + 4).getSar();
             } else {
-                randOption2 = transList.get(index - 1).getSar();
-                randOption3 = transList.get(index - 2).getSar();
+                randOption2 = transList.get(index - 2).getSar();
+                randOption3 = transList.get(index - 4).getSar();
             }
 
             answers = new ArrayList<String>() {{
@@ -119,7 +129,7 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    private void checkAnswer(String answer) {
+    private void checkAnswer(String answer, Integer answerId) {
         answered = true;
         RadioButton rbSelected = findViewById(rbGroup.getCheckedRadioButtonId());
         if(rbSelected.getText().equals(answer)) {
@@ -140,6 +150,38 @@ public class QuizActivity extends AppCompatActivity {
             toastTxtView.setTextSize(20);
             incorrectToast.show();
         }
+        stopPlaying();
+        mp = MediaPlayer.create(this,
+                this.getResources().getIdentifier(getTableInfo() + answerId, "raw",
+                        this.getPackageName()));
+        mp.start();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void stopPlaying() {
+        if(mp != null) {
+            mp.stop();
+            mp.release();
+            mp = null;
+        }
+    }
+
+    private void setTableInfo(String tableInfo) {
+        this.tableInfo = tableInfo;
+    }
+
+    private String getTableInfo() {
+        return this.tableInfo;
     }
 
 }

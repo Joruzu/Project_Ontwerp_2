@@ -1,5 +1,6 @@
 package com.example.sarnamibasic;
 
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -7,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -15,12 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private ArrayList<Translation> trans = new ArrayList<>();
     private Context context;
     private int recViewIndex = -1;
     private String audioTableId;
     private int textSizeValue;
+    private MediaPlayer mp;
 
     public RecViewAdapter(Context context) {
         this.context = context;
@@ -35,7 +37,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         final String songNameId = String.valueOf(trans.get(position).getId());
         holder.txtSar.setTextSize(textSizeValue);
         holder.txtNed.setTextSize(textSizeValue-3);
@@ -46,7 +48,8 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             public void onClick(View view) {
                 recViewIndex = position;
                 notifyDataSetChanged();
-                MediaPlayer mp = MediaPlayer.create(context,
+                stopPlaying();
+                mp = MediaPlayer.create(context,
                         context.getResources().getIdentifier(getAudioTableId() + songNameId, "raw",
                                 context.getPackageName()));
                 mp.start();
@@ -93,5 +96,13 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     public void setTextSizeValue(int value) {
         this.textSizeValue = value;
+    }
+
+    private void stopPlaying() {
+        if(mp != null) {
+            mp.stop();
+            mp.release();
+            mp = null;
+        }
     }
 }

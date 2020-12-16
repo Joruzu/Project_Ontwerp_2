@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,8 @@ public class RecViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recview);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent prevIntent = getIntent();
         String tableInfo = prevIntent.getStringExtra("tableId");
         String cardName = prevIntent.getStringExtra("cardName");
@@ -64,6 +67,9 @@ public class RecViewActivity extends AppCompatActivity {
                 quizIntent.putExtra("quizName", quizName);
                 quizIntent.putExtra("tableInfo", tableInfo);
                 this.startActivity(quizIntent);
+                return true;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

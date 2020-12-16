@@ -17,9 +17,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RecViewActivity"/>
-        <activity android:name=".QuizActivity"/>
-        <activity android:name=".PreferencesActivity"/>
+        <activity android:name=".RecViewActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".QuizActivity" />
+
+        <activity android:name=".PreferencesActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".OverOnsActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

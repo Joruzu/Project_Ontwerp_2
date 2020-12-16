@@ -20,6 +20,21 @@ public class MainActivity extends AppCompatActivity {
             add(new TableInfo("groeten", "Groeten"));
             add(new TableInfo("introducties", "Introducties"));
             add(new TableInfo("uitdrukkingen", "Uitdrukkingen"));
+            add(new TableInfo("wegwijzen","Wegwijzen"));
+            add(new TableInfo("weer","Het Weer"));
+            add(new TableInfo("noodgeval","Noodgeval"));
+            add(new TableInfo("markt","De Markt"));
+            add(new TableInfo("winkelen","Winkelen"));
+            add(new TableInfo("getallen","Getallen"));
+            add(new TableInfo("vragen","Vragen"));
+            add(new TableInfo("gevoelens","Gevoelens"));
+            add(new TableInfo("hotel","Hotel"));
+            add(new TableInfo("restaurant","Restaurant"));
+            add(new TableInfo("tijd","Tijd"));
+            add(new TableInfo("datum","Datum"));
+            add(new TableInfo("kleur","Kleur"));
+            add(new TableInfo("dieren","Dieren"));
+            add(new TableInfo("lichaam","Lichaam"));
         }
     };
 
@@ -56,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menuPrefItem:
                 Intent prefIntent = new Intent(this, PreferencesActivity.class);
                 this.startActivity(prefIntent);
+                return true;
+            case R.id.menuAboutItem:
+                Intent aboutIntent = new Intent(this, OverOnsActivity.class);
+                this.startActivity(aboutIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
