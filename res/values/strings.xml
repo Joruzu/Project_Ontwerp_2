@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Sarnami Basic</string>
+    <string name="txtLinkAnda"><a href="https://www.suriname.nu/201cult/sarnami01.html">ANDA Suriname</a></string>
+    <string name="txtLinkBhasa"><a href="https://www.sarnamibhasa.nl/">Sarnami Bhasa</a></string>
+    <string name="emailDinesh">dinharkhoe@gmail.com</string>
+    <string name="emailJordi">jorset98@gmail.com</string>
+    <string name="txtOverOns">
+        Deze app is gemaakt ter afronding van het vak Project Ontwerp 2C,
+        studierichting Elektrotechniek orientatie Informatica op het AdeKUS\n
+        Wij zijn een team van twee met een interesse in programmeren,
+        een die het Sarnami kan spreken en de ander die het wil leren\n
+        Het idee is dus ontstaan uit nieuwsgierigheid en leergierigheid voor de taal\n\n
+        Voor vragen en suggesties kunt u ons contacten op de email addressen onderaan de pagina\n\n
+        Voor extra resources m.b.t. het Sarnami kunt u de onderstaande websites bezoeken\n
+        Let wel, wij zijn niet geassocieerd met deze websites
+    </string>
 </resources>
