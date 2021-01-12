@@ -1,112 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundMediumContrast">
 
-    <TextView
-        android:id="@+id/txtOverOns"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/txtOverOns"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textColor="@color/textColor"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/backgroundMediumContrast">
 
-    <TextView
-        android:id="@+id/txtResources"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="EXTRA RESOURCES"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:textColor="@color/textColor"
-        app:layout_constraintEnd_toEndOf="@+id/txtOverOns"
-        app:layout_constraintStart_toStartOf="@+id/txtOverOns"
-        app:layout_constraintTop_toBottomOf="@+id/txtOverOns" />
+        <TextView
+            android:id="@+id/txtOverOns"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/txtOverOns"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtResource1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txtLinkAnda"
-        android:textSize="17sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/txtResources"
-        app:layout_constraintStart_toStartOf="@+id/txtResources"
-        app:layout_constraintTop_toBottomOf="@+id/txtResources" />
+        <TextView
+            android:id="@+id/txtResources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="EXTRA RESOURCES"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="@+id/txtOverOns"
+            app:layout_constraintStart_toStartOf="@+id/txtOverOns"
+            app:layout_constraintTop_toBottomOf="@+id/txtOverOns" />
 
-    <TextView
-        android:id="@+id/txtResource2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txtLinkBhasa"
-        android:textSize="17sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/txtResource1"
-        app:layout_constraintStart_toStartOf="@+id/txtResource1"
-        app:layout_constraintTop_toBottomOf="@+id/txtResource1" />
+        <TextView
+            android:id="@+id/txtResource1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtLinkAnda"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/txtResources"
+            app:layout_constraintStart_toStartOf="@+id/txtResources"
+            app:layout_constraintTop_toBottomOf="@+id/txtResources" />
 
-    <TextView
-        android:id="@+id/txtContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="CONTACT"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:textColor="@color/textColor"
-        app:layout_constraintEnd_toEndOf="@+id/txtResource2"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="@+id/txtResource2"
-        app:layout_constraintTop_toBottomOf="@+id/txtResource2" />
+        <TextView
+            android:id="@+id/txtResource2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtLinkBhasa"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/txtResource1"
+            app:layout_constraintStart_toStartOf="@+id/txtResource1"
+            app:layout_constraintTop_toBottomOf="@+id/txtResource1" />
 
-    <TextView
-        android:id="@+id/emailDinesh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:autoLink="email"
-        android:text="@string/emailDinesh"
-        android:textSize="16sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/emailJordi"
-        app:layout_constraintStart_toStartOf="@+id/emailJordi"
-        app:layout_constraintTop_toBottomOf="@+id/emailJordi" />
+        <TextView
+            android:id="@+id/txtContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="CONTACT"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="@+id/txtResource2"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="@+id/txtResource2"
+            app:layout_constraintTop_toBottomOf="@+id/txtResource2" />
 
-    <TextView
-        android:id="@+id/emailJordi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:autoLink="email"
-        android:text="@string/emailJordi"
-        android:textSize="16sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/txtContact"
-        app:layout_constraintStart_toStartOf="@+id/txtContact"
-        app:layout_constraintTop_toBottomOf="@+id/txtContact" />
+        <TextView
+            android:id="@+id/emailDinesh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autoLink="email"
+            android:text="@string/emailDinesh"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/emailJordi"
+            app:layout_constraintStart_toStartOf="@+id/emailJordi"
+            app:layout_constraintTop_toBottomOf="@+id/emailJordi" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="25dp" />
+        <TextView
+            android:id="@+id/emailJordi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autoLink="email"
+            android:text="@string/emailJordi"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/txtContact"
+            app:layout_constraintStart_toStartOf="@+id/txtContact"
+            app:layout_constraintTop_toBottomOf="@+id/txtContact" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="25dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="25dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="25dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
