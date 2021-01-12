@@ -30,8 +30,6 @@ public class PreferencesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Instellingen");
 
-
-
         sharedPreferences = getSharedPreferences("userPreferences", MODE_PRIVATE);
         userEdit = sharedPreferences.edit();
 
@@ -41,7 +39,6 @@ public class PreferencesActivity extends AppCompatActivity {
         rbDarkTheme = findViewById(R.id.rbDarkMode);
         rbLightTheme = findViewById(R.id.rbLightMode);
 
-        //rbGroupTheme.check(R.id.rbLightMode);
         rbGroupTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

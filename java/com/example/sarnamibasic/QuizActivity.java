@@ -62,8 +62,9 @@ public class QuizActivity extends AppCompatActivity {
 
         Collections.shuffle(transList);
         index = 0;
-        questionTotal = transList.size();
         totalCorrect = 0;
+        questionTotal = transList.size();
+
         txtCountCorrect.setText("Aantal goed: " + totalCorrect);
 
         showNextQuestion();
@@ -89,7 +90,6 @@ public class QuizActivity extends AppCompatActivity {
                     showNextQuestion();
                     nextQuestion.setText("Check");
                 }
-
             }
         });
     }
@@ -183,5 +183,4 @@ public class QuizActivity extends AppCompatActivity {
     private String getTableInfo() {
         return this.tableInfo;
     }
-
 }

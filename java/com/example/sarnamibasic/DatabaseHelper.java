@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static String TAG = "DataBaseHelper"; // Tag just for the LogCat window
-    private static String DB_NAME ="sarnamiDB.db"; // Database name
-    private static int DB_VERSION = 1; // Database version
+    private static String DB_NAME ="sarnamiDB.db";
+    private static int DB_VERSION = 1;
     private final File DB_FILE;
     private SQLiteDatabase mDataBase;
     private final Context mContext;
@@ -30,9 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVer, int newVer) {
-        if(oldVer < newVer) {
 
-        }
     }
 
     public DatabaseHelper(Context context) {
@@ -42,13 +40,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void createDataBase() throws IOException {
-        // If the database does not exist, copy it from the assets.
         boolean mDataBaseExist = checkDataBase();
         if(!mDataBaseExist) {
             this.getReadableDatabase();
             this.close();
             try {
-                // Copy the database from assests
                 copyDataBase();
                 Log.e(TAG, "createDatabase database created");
             } catch (IOException mIOException) {
@@ -57,12 +53,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    // Check that the database file exists in databases folder
     private boolean checkDataBase() {
         return DB_FILE.exists();
     }
 
-    // Copy the database from assets
     private void copyDataBase() throws IOException {
         InputStream mInput = mContext.getAssets().open(DB_NAME);
         OutputStream mOutput = new FileOutputStream(DB_FILE);
@@ -76,11 +70,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         mInput.close();
     }
 
-    // Open the database, so we can query it
+
     public boolean openDataBase() throws SQLException {
-        // Log.v("DB_PATH", DB_FILE.getAbsolutePath());
         mDataBase = SQLiteDatabase.openDatabase(DB_FILE.getAbsolutePath(), null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        // mDataBase = SQLiteDatabase.openDatabase(DB_FILE, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
         return mDataBase != null;
     }
 
