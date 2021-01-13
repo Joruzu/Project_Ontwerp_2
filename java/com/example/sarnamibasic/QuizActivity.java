@@ -101,12 +101,12 @@ public class QuizActivity extends AppCompatActivity {
             txtQuestion.setText(question);
             ansOption1 = transList.get(index).getSar();
             ansOptionId = transList.get(index).getId();
-            if (index < questionTotal - 5) {
-                randOption2 = transList.get(index + 2).getSar();
-                randOption3 = transList.get(index + 4).getSar();
+            if (index < questionTotal - 6) {
+                randOption2 = transList.get(index + 3).getSar();
+                randOption3 = transList.get(index + 5).getSar();
             } else {
-                randOption2 = transList.get(index - 2).getSar();
-                randOption3 = transList.get(index - 4).getSar();
+                randOption2 = transList.get(index - 3).getSar();
+                randOption3 = transList.get(index - 5).getSar();
             }
 
             answers = new ArrayList<String>() {{
